@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.kasimkartal866.navigationcomponent.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/switchToGameScreen"
+            app:destination="@id/gamePageFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamePageFragment"
+        android:name="com.kasimkartal866.navigationcomponent.GamePageFragment"
+        android:label="fragment_game_page"
+        tools:layout="@layout/fragment_game_page" >
+        <action
+            android:id="@+id/switchToResultScreen"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popExitAnim="@android:anim/slide_in_left" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="no name" />
+        <argument
+            android:name="age"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="length"
+            app:argType="float"
+            android:defaultValue="0.0" />
+        <argument
+            android:name="celibacy"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="object"
+            app:argType="com.kasimkartal866.navigationcomponent.Persons" />
+        <action
+            android:id="@+id/homePageBack"
+            app:destination="@id/homePageFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.kasimkartal866.navigationcomponent.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/backGamePage"
+            app:destination="@id/gamePageFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+</navigation>
